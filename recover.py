@@ -46,7 +46,7 @@ do_create() {
         jpeg="output/${outfile}.jpg"
         printf "Creating screenshot to test video\\n"
         set +e
-        ffmpeg -i $dest -vf "select=eq(n\,0)" -q:v 3 $jpeg -nostats -loglevel 0
+	ffmpeg -i $dest -vframes 1 -f image2 $jpeg -nostats -loglevel 0
         set -e
 
 }
@@ -92,7 +92,8 @@ create () {
         if f_name in ffounds:
             print("Already found {} skipping".format(f_name))
             continue
-        for j, m in enumerate(mdats[mskips:]):  # Already got working copies of the first to mdats
+        mds = mdats[i:] + mdats[:i]
+        for j, m in enumerate(mds):  # Already got working copies of the first to mdats
             m_name = m.split('_')[0]
             
             if m_name in mfounds:
