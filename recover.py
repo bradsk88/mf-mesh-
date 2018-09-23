@@ -125,6 +125,9 @@ with open('bashfile', 'w') as outfile:
             command = 'cat {} {} > output/{}'.format(f, m, output_name)
             outfile.write(command)
             outfile.write('\n')
+	    command = 'ffmpeg -i output/{} -vf "select=eq(n\,0)" -q:v 3 output/{}.jpg'.format(output_name)
+	    outfile.write(command)
+	    outfile.write('\n')
 
 count = 0
 for i in range(53):
