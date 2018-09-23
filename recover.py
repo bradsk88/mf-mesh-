@@ -71,14 +71,14 @@ create () {
         outfile=$i"_"$f"_"$3"_"$4".mov"
         if exists $3; then
                 if [ "$f_found" != "$3" ]; then
-                        printf "Skipping because result already found for ftyp: $3\\n"
+                        printf "Skipping $outfile because result already found for ftyp: $3\\n"
                         f_found=$3
                 fi
                 return
         fi
         if exists $4; then
                 if [ "$m_found" != "$4" ]; then
-                        printf "Skipping because result already found for mdat: $4\\n"
+                        printf "Skipping $outfile because result already found for mdat: $4\\n"
                         m_found=$4
                 fi
                 return
