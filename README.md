@@ -31,5 +31,21 @@ and run it:
 $ python recover.py
 ```
 
+This will generate a bash file in the same directory called "bashfile".  Run it.
+
+```
+bash ./bashfile
+```
+
 This will run a brute-force algorithm to pair up every combination of 
-`ftyp/mdat` files in the directory.  *This will take a very long time.*
+`ftyp/mdat` files in the directory.  *This will take a very long time 
+and use a ton of space.* 
+
+### TODO:
+1) Cleanup: this script generates jpg files from the successfully 
+converted videos.  We should be able to clean up the other non-successful 
+files pretty easily and drastically reduce the amount of disk space used.  
+
+Might want to make this a flag so we can generate as many files as
+possible for last-ditch recovery efforts.
+
